@@ -30,9 +30,9 @@ export const spreadHedge = (odds, initBet, initTotalPay, initSpread, newSpread) 
     if(initSpread > 0 && newSpread > 0){
             sit = "Good News"
             combinedProfit = (bet * multiplier + initTotalPay - initBet)
-            sit = `if Initial team loses by less than ${initSpread} AND Hedge Team loses by less than ${newSpread} you win both bets Total Profit = ${combinedProfit}!`
+            sit = `if Initial team loses by less than ${initSpread} AND Hedge Team loses by less than ${newSpread} you WIN both bets Total Profit = ${combinedProfit}!`
     }else if(initSpread < 0 && newSpread < 0){
-            sit = "Bad News Could Potentially lose both bets...Not Advised"
+            // "Bad News Could Potentially LOSE both bets...Not Advised"
             combinedLosses = initBet + bet
             sit = `If Initial Team wins by less than ${initSpread} or loses AND Hedge Team wins by less than ${newSpread} or loses you LOSE both bets Total Losses = ${combinedLosses}`
 
@@ -48,7 +48,8 @@ export const spreadHedge = (odds, initBet, initTotalPay, initSpread, newSpread) 
                             let sweetSpread = initSpread + newSpread - .5
                             magicNumber = initSpread - sweetSpread 
                             magicNumberLowerEnd = magicNumber + Math.abs(magicNumber - initSpread) - .5
-                            sit = `If Initial Teams final spread falls on or between ${magicNumber} and ${magicNumberLowerEnd} You win both bets`
+                            console.log("I am here")
+                            sit = `If Initial Teams final spread falls on or between ${magicNumber} and ${magicNumberLowerEnd} You WIN both bets`
                             combinedProfit = bet * multiplier + initTotalPay - initBet
                     }
                 }else{
@@ -57,7 +58,7 @@ export const spreadHedge = (odds, initBet, initTotalPay, initSpread, newSpread) 
                             let sweetSpread = initSpread + newSpread - .5
                             magicNumber = newSpread - sweetSpread 
                             magicNumberLowerEnd = magicNumber + Math.abs(magicNumber - newSpread) - .5
-                            sit = `If Hedge Teams final spread falls on or between ${magicNumber} and ${magicNumberLowerEnd} You win both bets`
+                            sit = `If Hedge Teams final spread falls on or between ${magicNumber} and ${magicNumberLowerEnd} You WIN both bets`
                             combinedProfit = bet * multiplier + initTotalPay - initBet
                     }
                 }
@@ -68,7 +69,7 @@ export const spreadHedge = (odds, initBet, initTotalPay, initSpread, newSpread) 
                             let sweetSpread = initSpread + newSpread
                             magicNumber = initSpread - sweetSpread 
                             magicNumberLowerEnd = magicNumber - Math.abs(magicNumber - initSpread) 
-                            sit = `If Initial Teams final spread falls on or between ${magicNumberLowerEnd + .5} and ${magicNumber - .5} You Lose both bets`
+                            sit = `If Initial Teams final spread falls on or between ${magicNumberLowerEnd + .5} and ${magicNumber - .5} You LOSE both bets`
                             combinedProfit = bet * multiplier + initTotalPay - initBet
 
                 }else{
@@ -76,7 +77,7 @@ export const spreadHedge = (odds, initBet, initTotalPay, initSpread, newSpread) 
                             let sweetSpread = initSpread + newSpread
                             magicNumber = newSpread - sweetSpread 
                             magicNumberLowerEnd = magicNumber - Math.abs(magicNumber - newSpread) 
-                            sit = `If Hedge Teams final spread falls on or between ${magicNumberLowerEnd + .5} and ${magicNumber - .5} You Lose both bets`
+                            sit = `If Hedge Teams final spread falls on or between ${magicNumberLowerEnd + .5} and ${magicNumber - .5} You LOSE both bets`
                             combinedProfit = bet * multiplier + initTotalPay - initBet
                 }
             }

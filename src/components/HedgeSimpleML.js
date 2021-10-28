@@ -25,7 +25,7 @@ function HedgeSimpleML(props) {
         
         setValues({
             ...values,
-            sug: hedge(values.odds, values.initBet, values.totalInitPayout)
+            sug: hedge(parseFloat(values.odds), parseFloat(values.initBet), parseFloat(values.totalInitPayout))
         })
         
     }
@@ -37,13 +37,13 @@ function HedgeSimpleML(props) {
             <br/>
             <form onSubmit={handleSubmit}>
                 <label>Hedge Bet Odds:
-                    <input onChange={changeValues} type="int" value={values.odds} name="odds"/>
+                    <input onChange={changeValues} type="number" value={values.odds} name="odds"/>
                 </label><br/>
                 <label>Initial Bet Amount:
-                    <input onChange={changeValues} type="int" value={values.initBet} name="initBet"/>
+                    <input onChange={changeValues} type="number" value={values.initBet} name="initBet"/>
                 </label><br/>
-                <label>Total Payout For Original Bet:
-                    <input onChange={changeValues} type="int" value={values.totalInitPayout} name="totalInitPayout"/>
+                <label>Total Payout For Initial Bet:
+                    <input onChange={changeValues} type="number" value={values.totalInitPayout} name="totalInitPayout"/>
                 </label><br/>
 
                 <input type="submit"/>

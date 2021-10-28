@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { spreadHedge } from '../algos/spreadHedge';
+import SuggestionSpread from './SuggestionSpread';
 
 function HedgeSimpleSpread(props) {
 
@@ -14,10 +15,11 @@ function HedgeSimpleSpread(props) {
     })
 
     const changeValues = (e) => {
+        
         setValues({
             ...values,
             sug: false,
-            [e.target.name]: e.target.value
+            [e.target.name]: isNaN(parseFloat(e.target.value)) ? e.target.value : parseFloat(e.target.value) 
         })
     }
 
@@ -31,28 +33,28 @@ function HedgeSimpleSpread(props) {
         
     }
 
-    console.log(values)
-
     return (
     <div>
-        {/* <div>{values.sug && <Suggestions sugs={values.sug} odds={values.odds} totalInitPayout={values.totalInitPayout}/>}</div> */}
+        <div>{values.sug && <SuggestionSpread sugs={values.sug} odds={values.odds} totalInitPayout={values.totalInitPayout}/>}</div>
         <br/>
         <form onSubmit={handleSubmit}>
             <label>Hedge Bet Odds:
-                <input onChange={changeValues} type="int" value={values.odds} name="odds"/>
-            </label><br/>
-            <label>Initial Bet Amount:
-                <input onChange={changeValues} type="int" value={values.initBet} name="initBet"/>
-            </label><br/>
-            <label>Total Payout For Original Bet:
-                <input onChange={changeValues} type="int" value={values.totalInitPayout} name="totalInitPayout"/>
-            </label><br/>
-            <label>Initial Spread:
-                <input onChange={changeValues} type="int" value={values.initSpread} name="initSpread"/>
+                <input onChange={changeValues} type="number" value={values.odds} name="odds"/>
             </label><br/>
             <label>Hedge Spread:
-                <input onChange={changeValues} type="int" value={values.newSpread} name="newSpread"/>
+                <input onChange={changeValues} type="number" value={values.newSpread} name="newSpread"/>
             </label><br/>
+            <label>Initial Bet Amount:
+                <input onChange={changeValues} type="number" value={values.initBet} name="initBet"/>
+            </label><br/>
+            <label>Total Payout For Initial Bet:
+                <input onChange={changeValues} type="number" value={values.totalInitPayout} name="totalInitPayout"/>
+            </label><br/>
+            <label>Initial Spread:
+                <input onChange={changeValues} type="number" value={values.initSpread} name="initSpread"/>
+            </label><br/>
+            
+            
 
             <input type="submit"/>
         </form>

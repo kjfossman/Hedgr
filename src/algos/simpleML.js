@@ -13,7 +13,7 @@ export const hedge = (odds, initBet, initTotalPay) => {
         let pLO = initTotalPay - left - initBet
         let pRN = (right * multiplier) - initBet
         let pRO = initTotalPay - right - initBet
-        console.log("left", left, "right", right)
+
         if(Math.abs(pLN - pLO) > Math.abs(pRO - pRN)){
             left++
             bet = right
