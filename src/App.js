@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import HedgeSimpleML from './components/HedgeSimpleML.js';
+import HedgeSimpleSpread from './components/HedgeSimpleSpread';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Route exact path="/moneyline-hedge-simple" component={HedgeSimpleML}/>
+      <Route exact path="/spread-hedge-simple" component={HedgeSimpleSpread}/>
+
     </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,16 @@
+.btn {
+    background-color: orange;
+    margin: 1px;
+}
+
+.inactive {
+    text-decoration: none;
+    color: black
+}
+
+.active {
+    background-color: transparent;
+    text-decoration: underline;
+    text-decoration-color: white;
+    color: black
+}
