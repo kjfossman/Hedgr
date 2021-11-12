@@ -1,0 +1,33 @@
+label{
+    display: inline-block;
+    width: 350px;
+    background-color: lightsteelblue;
+    text-align: left;
+    padding-bottom: 10px;
+    padding-left: 2px;
+    border: solid;
+    border-width: thin;
+}
+input{
+    float: right;
+    display: inline-block;
+}
+
+.submit{
+    float: none;
+    background-color: lightsteelblue;
+    text-align: center;
+    border: solid;
+    border-width: thin;
+    width: 354px;
+    height: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 20px;
+    
+}
+
+.submit:hover{
+    background-color: green;
+    cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Suggestions from './Suggestions';
 import { hedge } from '../algos/simpleML';
+import '../scss/SimpleSpread.css';
 
 function HedgeSimpleML(props) {
 
@@ -46,7 +47,7 @@ function HedgeSimpleML(props) {
                     <input onChange={changeValues} type="number" value={values.totalInitPayout} name="totalInitPayout"/>
                 </label><br/>
 
-                <input type="submit"/>
+                <input className="submit" type="submit" value="Calculate"/>
             </form>
         </div>
     );

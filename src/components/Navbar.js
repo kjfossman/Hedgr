@@ -19,6 +19,13 @@ class Navbar extends Component {
                     activeClassName={ "active" }
                     ><b>Simple Spread Hedge</b>
                 </NavLink></button>
+
+                <button className="btn"><NavLink 
+                    to="/moneyline-safe" exact
+                    className="inactive"
+                    activeClassName={ "active" }
+                    ><b>Money Line Limit</b>
+                </NavLink></button>
                 
             </div>
         );

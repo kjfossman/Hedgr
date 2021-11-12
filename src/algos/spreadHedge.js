@@ -38,7 +38,9 @@ export const spreadHedge = (odds, initBet, initTotalPay, initSpread, newSpread) 
 
     }else if(Math.abs(initSpread) === Math.abs(newSpread)){
             sit = "Same as Moneyline Hedge"
-    }else{
+    }else if(Math.abs(initSpread) - Math.abs(newSpread) === .5 || Math.abs(initSpread) - Math.abs(newSpread) === -.5)
+        sit = 'Potential to PUSH and LOSE reevaluate before making final decision'
+    else{
             // "We need to do some math"
             if(initSpread + newSpread > 0){
                 //  "Guaranteed Winner"
@@ -66,19 +68,20 @@ export const spreadHedge = (odds, initBet, initTotalPay, initSpread, newSpread) 
                 // "Potential to lose everything Not Advised"
                 if(initSpread < 0){
                     // "Initial Team Favored"
+                            
                             let sweetSpread = initSpread + newSpread
                             magicNumber = initSpread - sweetSpread 
-                            magicNumberLowerEnd = magicNumber - Math.abs(magicNumber - initSpread) 
+                            magicNumberLowerEnd = magicNumber - Math.abs(magicNumber - initSpread)
                             sit = `If Initial Teams final spread falls on or between ${magicNumberLowerEnd + .5} and ${magicNumber - .5} You LOSE both bets`
-                            combinedProfit = bet * multiplier + initTotalPay - initBet
-
+                            combinedLosses = bet + initBet
                 }else{
                     // "Hedge Team Favored"
+                            debugger
                             let sweetSpread = initSpread + newSpread
                             magicNumber = newSpread - sweetSpread 
                             magicNumberLowerEnd = magicNumber - Math.abs(magicNumber - newSpread) 
                             sit = `If Hedge Teams final spread falls on or between ${magicNumberLowerEnd + .5} and ${magicNumber - .5} You LOSE both bets`
-                            combinedProfit = bet * multiplier + initTotalPay - initBet
+                            combinedLosses = bet + initBet
                 }
             }
 

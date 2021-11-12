@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { spreadHedge } from '../algos/spreadHedge';
 import SuggestionSpread from './SuggestionSpread';
+import '../scss/SimpleSpread.css';
 
 function HedgeSimpleSpread(props) {
 
@@ -55,8 +56,9 @@ function HedgeSimpleSpread(props) {
             </label><br/>
             
             
-
-            <input type="submit"/>
+            
+            <input className="submit" type="submit" value="Calculate"/>
+          
         </form>
     </div>
     );
